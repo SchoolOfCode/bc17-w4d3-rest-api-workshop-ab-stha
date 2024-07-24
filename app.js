@@ -1,5 +1,6 @@
 import express from "express";
 
+
 import {
   deleteAstronautById,
   updateAstronautById,
@@ -13,6 +14,7 @@ import {
 const app = express();
 
 app.use(express.json());
+
 
 /* 
 
@@ -29,6 +31,24 @@ res.json({
 
 /* Write a request handler to return the correct response when a `GET` request is received to `/astronauts`. Choose the appropriate 
 function from the imported functions at the top of the `app.js` to get your data. */
+
+// define a variable to store the port number
+const port = 3000;
+
+app.get('/astronauts',(req, res) => {
+  // res.status(200).json(activities, 'data');
+  //res.send('hello world');
+  res.status(200).json({
+    "success": true,
+    "payload": getAstronauts()
+  })
+});
+
+app.listen(port, () =>{
+    console.log('listening on '+ port)
+});
+
+
 
 // Task 2
 
